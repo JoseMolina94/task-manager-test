@@ -1,0 +1,25 @@
+# Ignorar node_modules en backend y frontend
+/backend/node_modules/
+/frontend/node_modules/
+
+# Ignorar carpetas de build
+/backend/dist/
+/frontend/.next/
+/frontend/out/
+
+# Ignorar archivos de logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignorar lockfiles innecesarios (opcional, según tu gestor de paquetes)
+/frontend/package-lock.json
+/backend/package-lock.json
+
+# Ignorar sistema de OS
+.DS_Store
+Thumbs.db
+
+# NO ignoramos .env, para que estén disponibles en la prueba
+# *.env
