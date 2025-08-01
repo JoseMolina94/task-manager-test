@@ -12,22 +12,22 @@ export const getTasks = async (req: Request, res: Response) => {
 };
 
 export const createTask = async (req: Request, res: Response) => {
-  const { nombre, descripcion } = req.body;
+  const { name, description } = req.body;
 
-  if (!nombre) {
-    return res.status(400).json({ error: 'El campo "nombre" es obligatorio.' });
+  if (!name) {
+    return res.status(400).json({ error: 'El campo "name" es obligatorio.' });
   }
 
   try {
     const [result] = await pool.query(
-      'INSERT INTO tasks (nombre, descripcion) VALUES (?, ?)',
-      [nombre, descripcion || null]
+      'INSERT INTO tasks (name, description) VALUES (?, ?)',
+      [name, description || null]
     );
 
     res.status(201).json({
       id: (result as any).insertId,
-      nombre,
-      descripcion: descripcion || null,
+      name,
+      description: description || null,
     });
   } catch (error) {
     console.error('Error al crear tarea:', error);
