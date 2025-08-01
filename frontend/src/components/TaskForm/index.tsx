@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { mutate } from "swr"
 import ColorPicker from "@/components/ColorPicker"
-import { TASK_COLORS } from "@/types/Task"
+import { TASK_COLORS, TaskInput } from "@/types/Task"
 
 interface TaskFormProps {
   onSuccess?: () => void
@@ -22,6 +22,12 @@ export default function TaskForm({ onSuccess }: TaskFormProps) {
     }
 
     setIsSubmitting(true)
+
+    const dataToSend: TaskInput = {
+      name: name.trim(), 
+      description: description.trim() || null,
+      color: color
+    }
     
     try {
       const response = await fetch('/api/tasks', {
@@ -29,11 +35,7 @@ export default function TaskForm({ onSuccess }: TaskFormProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
-          name: name.trim(), 
-          description: description.trim() || null,
-          color: color
-        }),
+        body: JSON.stringify(dataToSend),
       })
 
       if (!response.ok) {

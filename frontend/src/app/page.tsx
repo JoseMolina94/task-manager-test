@@ -4,7 +4,7 @@ import { useState } from 'react'
 import TaskCard from '@/components/TaskCard'
 import TaskForm from '@/components/TaskForm'
 import Modal from '@/components/Commons/Modal'
-import { PlusIcon } from '@/components/Icons'
+import { PlusIcon } from '@/components/Commons/Icons'
 import { Task } from '@/types/Task'
 import useSWR from 'swr'
 

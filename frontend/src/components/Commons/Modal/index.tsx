@@ -1,6 +1,6 @@
 'use client'
 
-import { CloseIcon } from '@/components/Icons'
+import { CloseIcon } from '@/components/Commons/Icons'
 import { ReactNode, useEffect } from 'react'
 
 interface ModalProps {
@@ -84,7 +84,7 @@ export default function Modal({
             {showCloseButton && (
               <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-gray-600 transition-colors"
+                className="text-gray-400 cursor-pointer hover:text-gray-600 transition-colors"
                 aria-label="Close modal"
               >
                 <CloseIcon />

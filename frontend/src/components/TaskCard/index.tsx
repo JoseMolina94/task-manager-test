@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { Task, TASK_COLORS } from "@/types/Task"
-import { ChevronDownIcon, ChevronUpIcon } from '@/components/Icons'
+import { ChevronDownIcon, ChevronUpIcon } from '@/components/Commons/Icons'
 
 interface TaskCardProps {
   task: Task

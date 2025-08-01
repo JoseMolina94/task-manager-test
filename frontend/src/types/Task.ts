@@ -5,6 +5,12 @@ export interface Task {
   color?: string
 }
 
+export interface TaskInput {
+  name: string
+  description: string | null
+  color?: string
+}
+
 export const TASK_COLORS = [
   { name: 'white', value: '#ffffff', bg: 'bg-white', border: 'border-gray-200' },
   { name: 'light-green', value: '#dcfce7', bg: 'bg-green-50', border: 'border-green-200' },
