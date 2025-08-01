@@ -78,6 +78,10 @@ DB_USER=taskuser
 DB_PASSWORD=taskpass
 DB_NAME=taskdb
 ```
+Crea un archivo `.env` (en caso de no existir) en la carpeta `frontend`:
+```env
+NEXT_PUBLIC_BACKEND_URL = 'http://localhost:4000'
+```
 
 ## Ejecutar la aplicación
 
