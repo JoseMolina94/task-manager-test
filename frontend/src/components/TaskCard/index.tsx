@@ -14,11 +14,27 @@ export default function TaskCard(props: TaskCardProps) {
   const [contentHeight, setContentHeight] = useState(0)
   const contentRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  const calculateContentHeight = () => {
     if (contentRef.current) {
-      setContentHeight(contentRef.current.scrollHeight)
+      setContentHeight(contentRef.current.scrollHeight + 100)
     }
+  }
+
+  useEffect(() => {
+    calculateContentHeight()
   }, [task.description])
+
+  useEffect(() => {
+    const handleResize = () => {
+      calculateContentHeight()
+    }
+
+    window.addEventListener('resize', handleResize)
+    
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   const toggleExpanded = () => {
     setIsExpanded(!isExpanded)
@@ -26,6 +42,7 @@ export default function TaskCard(props: TaskCardProps) {
 
   const colorConfig = TASK_COLORS.find(c => c.value === task.color) || TASK_COLORS[0]
 
+  console.log("RRR ", task)
   return (
     <div 
       className={`border rounded-md shadow-sm overflow-hidden ${colorConfig.bg} ${colorConfig.border}`}

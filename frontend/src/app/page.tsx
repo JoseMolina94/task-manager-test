@@ -29,8 +29,8 @@ export default function TasksPage() {
         </div>
       </div>
     ) : (
-      <div className="max-w-xl mx-auto py-10 px-4">
-        <div className="flex items-center border-b justify-between pb-4 mb-6">
+      <div className="max-w-xl mx-auto py-10 px-4 h-screen flex flex-col">
+        <div className="flex items-center border-b justify-between pb-4 mb-6 flex-shrink-0">
           <h1 className="page-title">
             Lista de Tareas
           </h1>
@@ -43,7 +43,7 @@ export default function TasksPage() {
           </button>
         </div>
 
-        <div>
+        <div className="flex-1 overflow-y-auto">
           {
             isLoading
               ? (
