@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS tasks (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  description TEXT
+  description TEXT,
+  color VARCHAR(7) DEFAULT '#ffffff'
 );
